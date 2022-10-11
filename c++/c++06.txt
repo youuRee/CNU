@@ -1,0 +1,165 @@
+// 1번 - Order list
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int menue, b = 0, f = 0, c = 0;
+  cout << "Select a menue(1~4)" << endl;
+  
+  while(1){
+    cout << "1) Bugger, 2) Fries, 3) Coke, 4) Finish" << endl;
+    cin >> menue;
+    
+    if (menue == 1){
+      b += 1;
+      cout << "You've ordered a Bugger" << endl;
+    }
+    else if (menue == 2){
+      f += 1;
+      cout << "You've ordered a Fries" << endl;
+    }
+    else if (menue == 3) {
+      c += 1;
+      cout << "You've ordered a Coke" << endl;
+    }
+    else {
+      break;
+    }
+  }
+  
+  cout << "Your order" << endl;
+  if (b != 0)
+    cout << "1) Bugger * " << b << endl;
+  if (f != 0)
+    cout << "2) Frice * " << f << endl;
+  if (c != 0)
+    cout << "3) Coke * " << c << endl;
+
+  return 0;
+} 
+
+// 2번 - Times Table
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  for (int i = 1; i < 10; i++){
+    for (int j = 2; j < 10; j++){
+      // 줄 간격 맞추기 위해 \t 사용
+      cout << j << "*" << i << "=" << i*j << "\t"; 
+    }
+    cout << endl; // 줄바꿈
+  }
+  return 0;
+}
+
+// 3번 - Lotto
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+int main() {
+  int num, arr[6];
+  srand(time(NULL));
+
+  for (int i = 0; i < 6; i++) {
+    start:;
+    num = rand() % 100; // random 숫자 뽑기
+    
+    // 중복되는 숫자 있는지 확인
+    for (int j = 0; j < i; j++){
+      if (arr[j] == num)
+        goto start; // 중복 시 goto 구문 실행
+    }
+    arr[i] = num;
+    cout << arr[i] << endl;
+  }
+  
+  return 0;
+}
+
+// 4번 - Diamond
+#include <iostream>
+using namespace std;
+
+int main() {
+  /*
+  변수 설명
+  h : 다이아몬드 길이
+  haif : 다이아몬드의 절반 길이 (다이아몬드를 2개의 삼각형으로 나눠서 출력)
+  cnt : 공백의 개수 지정하기 위해 필요한 변수
+    */
+  int h, half, cnt = 0;
+  cout << "input height: ";
+  cin >> h;
+  half = h / 2;
+  
+  // 다이아몬드 절반(앞) * 출력
+  for (int i = 1; i < h + 1; i++) {
+    if (i % 2 != 0) {
+      for (int z = 0; z < half - cnt; z++) {
+        cout << " ";
+      }
+      for (int j = 0; j < i; j++) {
+        cout << '*';
+      }
+      cout << endl;
+      cnt += 1;
+    }
+  }
+  cnt -= 2;
+  // 다이아몬드 나머지 절반(뒤) * 출력
+  for (int i = h - 2; i > 0; i--) {
+    if (i % 2 != 0) {
+      for (int z = 0; z < half - cnt; z++) {
+        cout << " ";
+      }
+      for (int j = 0; j < i; j++) {
+        cout << '*';
+      }
+      cout << endl;
+      cnt -= 1;
+    }
+  }
+  return 0;
+}
+
+// 5번 - fascal's triangle
+#include <iostream>
+using namespace std;
+
+// factorial 함수
+int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i <= n; i++)
+        result *= i;
+ 
+    return result;
+}  
+
+int main()
+{ 
+  int h, n_C_r;
+
+  cout << "input height: ";
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    // 삼각형을 만들기 위한 뛰어쓰기
+    for (int j = 0; j < h-i; j++) {
+      cout << " "; // h 크면 -> "\t"
+    }
+    // 파스칼 삼각형 가로줄 -> 조합 (n_C_r = n! / (n-r)!*r!)
+    for (int z = 0; z < i; z++) {
+      n_C_r = factorial(i-1) / (factorial(i-1-z) * factorial(z));
+      cout << n_C_r << " "; // h 크면 -> "\t\t"
+    }
+    cout << endl;
+  }
+
+	return 0;
+}

@@ -1,0 +1,262 @@
+// 1번 - Advanced calculator
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	char oper;
+
+	cout << "Select an operator: ";
+	cin >> oper; // 연산자 입력
+	cout << "Input two number: ";
+	cin >> a >> b; // 두 수 입력
+
+	// 연산자 switch문으로 구별
+	switch (oper)
+	{
+	case '+':
+		cout << "Anwser: " << a + b << endl;
+		break;
+	case '-':
+		cout << "Anwser: " << a - b << endl;
+		break;
+	case '*':
+		cout << "Anwser: " << a * b << endl;
+		break;
+	case '/':
+		if (b == 0) {
+			cout << "Answer: Cannot divide by 0.";
+		}
+		else {
+			cout << "Anwser: " << a / b << endl;
+		}	
+	default:
+		break;
+	}
+
+	return 0;
+}
+
+// 2번 - Discount
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int number, price;
+
+	cout << "number of items? ";
+	cin >> number;
+	price = number * 1000;
+
+	if (number >= 10) {
+		cout << "original price: " << price <<  " KRW"  << endl;
+		cout << "discounted price: " << price - (price * 0.1) << " KRW" << endl;
+	}
+	else {
+		cout << "price: " << price  << " KRW" << endl;
+	}
+
+	return 0;
+}
+
+// 3번 - Digits two
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  int number, n;
+
+  // 입력 받을 수
+  cout << "Input your number: ";
+  cin >> number;
+
+  n = number / 1000; // 1000의 자리
+  number = number % 1000;
+  
+  switch (n)
+	{
+	case 0:
+		cout << "thousands: zero" << endl;
+		break;
+	case 1:
+		cout << "thousands: one" << endl;
+		break;
+	case 2:
+		cout << "thousands: two" << endl;
+		break;
+	case 3:
+		cout << "thousands: three" << endl;
+    break;
+  case 4:
+		cout << "thousands: four" << endl;
+    break;
+  case 5:
+		cout << "thousands: five" << endl;
+    break;
+  case 6:
+		cout << "thousands: six" << endl;
+    break;
+  case 7:
+		cout << "thousands: seven" << endl;
+    break;
+  case 8:
+		cout << "thousands: eight" << endl;
+    break;
+  case 9:
+		cout << "thousands: nine" << endl;
+    break;
+	default:
+		break;
+	}
+
+  n = number / 100; // 백의 자리
+  number = number % 100;
+
+  switch (n)
+	{
+	case 0:
+		cout << "hundreds: zero" << endl;
+		break;
+	case 1:
+		cout << "hundreds: one" << endl;
+		break;
+	case 2:
+		cout << "hundreds: two" << endl;
+		break;
+	case 3:
+		cout << "hundreds: three" << endl;
+    break;
+  case 4:
+		cout << "hundreds: four" << endl;
+    break;
+  case 5:
+		cout << "hundreds: five" << endl;
+    break;
+  case 6:
+		cout << "hundreds: six" << endl;
+    break;
+  case 7:
+		cout << "hundreds: seven" << endl;
+    break;
+  case 8:
+		cout << "hundreds: eight" << endl;
+    break;
+  case 9:
+		cout << "thundreds: nine" << endl;
+    break;
+	default:
+		break;
+	}
+
+  n = number / 10; // 십의 자리
+  number = number % 10;
+
+  switch (n)
+	{
+	case 0:
+		cout << "tens: zero" << endl;
+		break;
+	case 1:
+		cout << "tens: one" << endl;
+		break;
+	case 2:
+		cout << "tens: two" << endl;
+		break;
+	case 3:
+		cout << "tens: three" << endl;
+    break;
+  case 4:
+		cout << "tens: four" << endl;
+    break;
+  case 5:
+		cout << "tens: five" << endl;
+    break;
+  case 6:
+		cout << "tens: six" << endl;
+    break;
+  case 7:
+		cout << "tens: seven" << endl;
+    break;
+  case 8:
+		cout << "tens: eight" << endl;
+    break;
+  case 9:
+		cout << "tens: nine" << endl;
+    break;
+	default:
+		break;
+	}
+
+  // 일의 자리
+  switch (number)
+	{
+	case 0:
+		cout << "ones: zero" << endl;
+		break;
+	case 1:
+		cout << "ones: one" << endl;
+		break;
+	case 2:
+		cout << "ones: two" << endl;
+		break;
+	case 3:
+		cout << "ones: three" << endl;
+    break;
+  case 4:
+		cout << "ones: four" << endl;
+    break;
+  case 5:
+		cout << "ones: five" << endl;
+    break;
+  case 6:
+		cout << "ones: six" << endl;
+    break;
+  case 7:
+		cout << "ones: seven" << endl;
+    break;
+  case 8:
+		cout << "ones: eight" << endl;
+    break;
+  case 9:
+		cout << "ones: nine" << endl;
+    break;
+	default:
+		break;
+	}
+  
+  return 0;
+}
+
+// 4번 - Minimum values
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	
+	cout << "input number: ";
+	cin >> a >> b >> c;
+
+	if (a <= b && a <= c) {
+		cout << "minimum number: " << a << endl;
+	}
+	else if (b <= a && b <= c) {
+		cout << "minimum number: " << b << endl;
+	}
+	else {
+		cout << "minimum number: " << c << endl;
+	}
+
+	return 0;
+}
